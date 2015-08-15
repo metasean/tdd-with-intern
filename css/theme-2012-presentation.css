@@ -1,0 +1,334 @@
+/* DZSlides stuffs */
+
+body {
+  display: none;
+  height: 600px;
+  font-family: Arial, sans-serif;
+  left: 50%;
+  margin-left: -450px;
+  margin-top: -300px;
+  overflow-y: hidden; /* auto; */
+  overflow-x: hidden;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  width: 900px; /* 800px; */
+}
+body.loaded {
+  display: block;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  left: -150%;
+  opacity: 0;
+  position: absolute;
+  height: 100%;
+  -moz-transition: left 200ms ease-in-out 0s;
+  -ms-transition: left 200ms ease-in-out 0s;
+  -o-transition: left 200ms ease-in-out 0s;
+  -webkit-transition: left 200ms ease-in-out 0s;
+  transition: left 200ms ease-in-out 0s;
+  width: 100%;
+}
+section[aria-selected] {
+  left: 0;
+  opacity: 1;
+}
+section[aria-selected] ~ section {
+  left: +150%;
+  opacity: 0;
+}
+
+.incremental {
+  visibility: hidden;
+}
+.incremental[active] {
+  visibility: visible;
+}
+.incremental > * {
+  opacity: 1;
+  -moz-transition: opacity 200ms ease-in-out 0s;
+  -ms-transition: opacity 200ms ease-in-out 0s;
+  -o-transition: opacity 200ms ease-in-out 0s;
+  -webkit-transition: opacity 200ms ease-in-out 0s;
+  transition: opacity 200ms ease-in-out 0s;
+}
+.incremental:not([active]) > * {
+  opacity: 0;
+}
+.incremental > *[aria-selected] {
+  opacity: 1;
+}
+.incremental > *[aria-selected] ~ * {
+  opacity: 0;
+}
+
+/* Slide stuffs */
+
+.cover h1 {
+  position: absolute;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-size: 55px;
+  font-weight: bold;
+  margin-top: 15px;
+  border-bottom: double;
+}
+
+.cover > *,
+.title > * {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.title > *,
+.title.link a {
+  position: absolute;
+  top: 50%;
+  height: 200px;
+  margin: 0;
+  margin-top: -100px;
+  width: 100%;
+}
+
+.title.link a {
+  margin-top: 100px;
+  font-size: 40px;
+}
+
+p {
+  display: inherit;
+}
+
+blockquote {
+  height: 100%;
+  min-height: 200px;
+}
+
+blockquote > p {
+  color: #FC9;
+  display: block;
+  font-size: 65px;
+  font-weight: 700;
+  height: 100%;
+  min-height: 200px;
+  padding: 10% 20px;
+}
+
+p.list,
+ul,
+ol {
+  color: transparent;
+  display: block;
+  font-weight: bold;
+  font-size: 0;
+  /*margin: 0 0 0 75px;*/
+  margin: 0 0 0 0;
+  overflow: hidden; 
+  text-shadow: none;
+  list-style-position: inside;
+  list-style-type: disc;
+}
+
+p.list strong,
+ol li,
+ul li {
+  clear: left;
+  color: #BBB;
+  display: block;
+  float: left;
+  font-size: 30px;
+  /*margin: 15px 0;*/
+  margin: 15px 0 0 0;
+}
+
+p.list strong code,
+ol li code,
+ul li code {
+  text-transform: none;
+}
+
+p.list strong:nth-child(2n+1),
+ol li:nth-child(2n+1),
+ul li:nth-child(2n+1) {
+  color: #DDD;
+}
+
+.illustration img {
+  bottom: 15px;
+  position: absolute;
+  right: 0;
+  width: 200px;
+}
+
+a:visited {
+  color: #99CCFF;
+}
+
+/* code */
+
+pre,
+.note,
+.notes,
+.warning {
+  font-size: 16px;
+  margin: 5px 0 20px 0;
+  white-space: pre-wrap;
+}
+
+pre code {
+  box-shadow: 0px 1px 5px #AAA inset;
+  border-radius: 5px;
+}
+
+iframe {
+  background: #FFF;
+  border: none;
+  box-shadow: 0 0 5px #AAA;
+}
+
+/* quote */
+
+.quote p {
+  display: block;
+  font-style: italic;
+  font-size: 50px;
+  line-height: 1.5;
+  margin-top: 40px;
+}
+
+/* toc */
+
+.toc {
+  display: none;
+}
+
+.details {
+  display: none;
+}
+
+.useful-links {
+  display: none;
+}
+
+/* introduction */
+
+.introduction p.list,
+.introduction ul,
+.introduction ol {
+  margin: 0;
+}
+
+.introduction p.list strong,
+.introduction u li,
+.introduction ol li {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: none;
+  height: 450px;
+  text-indent: -9999px;
+  width: 800px;
+}
+
+.introduction p.list strong[aria-selected="true"],
+.introduction u li[aria-selected="true"],
+.introduction ol li[aria-selected="true"] {
+  display: block;
+}
+
+/* examples */
+
+.example,
+.example button {
+  color: #000;
+  font-family: monospace;
+  padding: 5px 10px;
+}
+
+.jsfiddle {
+  margin-top: 10px;
+}
+
+/* columned layout */
+
+.two-columns {
+  padding-top: 80px;
+  -webkit-columns: 2;
+}
+
+.two-columns > :first-child {
+  position: absolute;
+  top: 0;
+}
+
+.two-columns p.list strong,
+.two-columns ol li,
+.two-columns ul li {
+  font-size: 20px;
+}
+
+.two-columns > ul,
+.two-columns > ol {
+  -webkit-column-break-after: always;
+}
+
+/* TODO: update */
+
+
+.note {
+  background: #FFFFD3;
+  border: 1px solid #E6E6A4;
+  border-radius: 5px;
+  color: #000000 !important; 
+  margin: 15px 0;
+  padding: 5px 30px 10px 30px;
+  position: relative;
+  display: inherit;
+}
+.note li {
+  list-style-position: inside;
+  color: #000000 !important;
+}
+
+.notes {
+  background: #FFFFD3;
+  border: 1px solid #E6E6A4;
+  border-radius: 5px;
+  color: #000000 !important;
+  margin: 15px 0;
+  padding: 5px 30px 10px 30px;
+  position: relative;
+  display: inherit;
+  font-size: 16px !important;  /* TODO: FIX ME */
+  font-weight: 400 !important; /* TODO: FIX ME */
+} 
+.notes li {
+  list-style-position: inside;
+  color: #000000 !important;
+  font-size: 16px !important;  /* TODO: FIX ME */
+  font-weight: 400 !important; /* TODO: FIX ME */
+}
+
+.warning {
+  background: #FFDDDD;
+  border: 2px solid red;
+  border-radius: 5px;
+  color: red !important;
+  font-weight: 900;
+  margin: 15px 0;
+  padding: 5px 30px 10px 30px;
+  position: relative;
+  display: inherit;
+}

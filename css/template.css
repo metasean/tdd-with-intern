@@ -1,0 +1,50 @@
+/*@font-face {
+  font-family: 'Quando';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Quando-Regular'), url(http://themes.googleusercontent.com/static/fonts/quando/v1/qVv1zuxOTRil_FcBMa30Kg.woff) format('woff');
+}*/
+
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,300,400italic,700,700italic|Roboto:400,400italic,500,500italic,300,300italic|Poiret+One&subset=latin,latin-ext);
+
+html {
+  background-image: url(../img/debut-dark.png);;
+}
+body {
+  color: #C6C5AC;
+  font-family: 'Roboto';
+}
+.cover {
+  background-image: url();
+  background-size: cover;
+}
+.cover > * {
+  bottom: auto;
+  font-size: 65px;
+  height: auto;
+  margin-top: 0;
+  padding-left: 30px;
+  position: absolute;
+  text-align: left;
+  top: 50px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-size: 225%;
+  margin-bottom: 20px;
+  font-variant: small-caps;
+  font-family: Merriweather;
+}
+
+p.list strong,
+ol li,
+ul li {
+  padding: 8px 0;
+}
+
+blockquote {
+  font-family: "Poiret One";
+}
